@@ -1,6 +1,8 @@
-name: Node CI
+name: Linguish
 
-on: [push]
+on:
+  workflow_dispatch:
+  pull_request:
 
 jobs:
   build:
