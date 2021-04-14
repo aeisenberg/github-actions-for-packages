@@ -26,17 +26,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - uses: actions/download-artifact@master
-        with:
-          name: webpack artifacts
-          path: public
-      - name: npm install, and test
-        run: |
-          npm install
-          npm test
-        env:
-          CI: true
+      - run: |
+          gem install github-linguist
+          github-linguist
+
+      # - name: Use Node.js ${{ matrix.node-version }}
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
+      # - uses: actions/download-artifact@master
+      #   with:
+      #     name: webpack artifacts
+      #     path: public
+      # - name: npm install, and test
+      #   run: |
+      #     npm install
+      #     npm test
+      #   env:
+      #     CI: true
